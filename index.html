@@ -7,18 +7,18 @@
 <meta name="description" content="Data analyst in Chicago. SQL, Power BI, Python. Case studies in churn analysis, forecasting, and reporting automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F8F9FA;
-    --card:#FFFFFF;
-    --ink:#1C2530;
-    --muted:#5A6675;
-    --navy:#1F4E79;
-    --navy-dark:#173C5E;
-    --line:#E2E7EC;
-    --line-strong:#C9D2DB;
-    --radius:8px;
+    --bg:#0E141C;
+    --panel:#151D28;
+    --panel-2:#1A2433;
+    --ink:#E8EEF4;
+    --muted:#8A98A8;
+    --teal:#3FBFA8;
+    --teal-dim:rgba(63,191,168,.14);
+    --line:#243140;
+    --radius:10px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -27,214 +27,164 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
   body{
-    font-family:'IBM Plex Sans',system-ui,sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.65;
-    font-size:16.5px;
+    font-family:'Manrope',system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);
+    line-height:1.65;font-size:16.5px;
   }
-  .mono{font-family:'IBM Plex Mono',monospace}
-  a{color:var(--navy)}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:3px}
-  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:var(--teal)}
+  a:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 
-  /* ---------- header ---------- */
+  /* header */
   header{
     border-bottom:1px solid var(--line);
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(6px);
+    background:rgba(14,20,28,.9);backdrop-filter:blur(6px);
     position:sticky;top:0;z-index:10;
   }
   .nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
-  .nav .name{font-weight:700;font-size:16px;text-decoration:none;color:var(--ink);letter-spacing:.01em}
-  .nav ul{display:flex;gap:24px;list-style:none}
-  .nav ul a{font-size:14px;font-weight:500;text-decoration:none;color:var(--muted)}
-  .nav ul a:hover{color:var(--navy)}
-  @media(max-width:560px){.nav ul{gap:14px}.nav ul a{font-size:13px}}
+  .nav .name{font-weight:800;font-size:16px;text-decoration:none;color:var(--ink)}
+  .nav .name::after{content:"_";color:var(--teal)}
+  .nav ul{display:flex;gap:22px;list-style:none}
+  .nav ul a{font-family:'JetBrains Mono',monospace;font-size:13px;text-decoration:none;color:var(--muted)}
+  .nav ul a:hover{color:var(--teal)}
+  @media(max-width:560px){.nav ul{gap:13px}}
 
-  /* ---------- hero ---------- */
-  .hero-band{
-    background:
-      linear-gradient(rgba(18,42,68,0) 0%, rgba(18,42,68,.45) 100%),
-      radial-gradient(1100px 480px at 78% -10%, #2E6DA4 0%, rgba(46,109,164,0) 60%),
-      linear-gradient(135deg, #15324F 0%, #1F4E79 58%, #173C5E 100%);
-    color:#fff;
-    position:relative;
-    overflow:hidden;
+  /* hero */
+  .hero{padding:80px 0 56px;position:relative}
+  .hero .status{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);
+    background:var(--teal-dim);border:1px solid rgba(63,191,168,.3);
+    padding:6px 12px;border-radius:99px;margin-bottom:22px;
   }
-  .hero-band::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:
-      linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
-    background-size:44px 44px;
-    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.25));
-  }
-  .hero-band::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
-    pointer-events:none;
-    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><polyline points="0,95 120,80 240,88 360,62 480,70 600,46 720,58 840,34 960,44 1080,22 1200,30" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2.5"/><polyline points="0,108 150,100 300,104 450,88 600,94 750,76 900,84 1050,64 1200,70" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>') bottom/100% 100% no-repeat;
-  }
-  .hero{padding:84px 0 110px;position:relative;z-index:1}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9FC3E4;
-    letter-spacing:.06em;margin-bottom:18px;text-transform:uppercase;
-  }
-  h1{
-    font-size:clamp(30px,4.6vw,42px);
-    font-weight:700;letter-spacing:-0.02em;line-height:1.18;
-    max-width:680px;color:#fff;
-  }
-  .hero .sub{margin-top:18px;max-width:580px;color:#C9D9E8;font-size:18px}
+  .hero .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:clamp(32px,5vw,46px);font-weight:800;letter-spacing:-0.02em;line-height:1.14;max-width:660px}
+  h1 span{color:var(--teal)}
+  .hero .sub{margin-top:18px;max-width:580px;color:var(--muted);font-size:17.5px}
   .hero-links{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
   .btn{
-    font-size:15px;font-weight:600;text-decoration:none;
-    padding:11px 20px;border-radius:6px;border:1px solid #fff;
+    font-size:15px;font-weight:700;text-decoration:none;
+    padding:11px 20px;border-radius:8px;border:1px solid var(--teal);
     display:inline-flex;align-items:center;gap:8px;
   }
-  .btn.solid{background:#fff;color:var(--navy);border-color:#fff}
-  .btn.solid:hover{background:#E8EFF6}
-  .btn.ghost{color:#fff;background:transparent;border-color:rgba(255,255,255,.55)}
-  .btn.ghost:hover{background:rgba(255,255,255,.12)}
+  .btn.solid{background:var(--teal);color:#08110E}
+  .btn.solid:hover{background:#4FD0B8}
+  .btn.ghost{color:var(--teal);background:transparent}
+  .btn.ghost:hover{background:var(--teal-dim)}
   .btn svg{width:15px;height:15px}
-  .hero a:focus-visible{outline-color:#fff}
 
-  /* ---------- kpi strip ---------- */
-  .kpis{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--line);border:1px solid var(--line);
-    border-radius:var(--radius);overflow:hidden;
-    margin-top:-58px;position:relative;z-index:2;
-    box-shadow:0 10px 30px rgba(21,50,79,.14);
+  /* kpis */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .kpi{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 16px;
   }
-  .kpi{background:var(--card);padding:18px 18px}
-  .kpi .v{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:500;color:var(--navy)}
-  .kpi .l{font-size:13px;color:var(--muted);margin-top:3px}
+  .kpi .v{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;color:var(--teal)}
+  .kpi .l{font-size:12.5px;color:var(--muted);margin-top:3px}
   @media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}}
 
-  /* ---------- sections ---------- */
+  /* sections */
   section{padding:64px 0 4px}
   h2{
-    font-size:22px;font-weight:700;letter-spacing:-0.01em;
-    padding-bottom:12px;margin-bottom:30px;
-    border-bottom:2px solid var(--ink);
+    font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;
+    color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:26px;
   }
+  h2::before{content:"// ";color:var(--muted)}
 
-  /* ---------- experience ---------- */
+  /* experience */
   .job{
-    display:grid;grid-template-columns:170px 1fr;gap:28px;
-    padding:26px 0;border-bottom:1px solid var(--line);
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px;margin-bottom:18px;
+    display:grid;grid-template-columns:160px 1fr;gap:24px;
   }
-  .job:last-child{border-bottom:none}
-  .job .when{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);
-    padding-top:4px;
-  }
-  .job h3{font-size:18px;font-weight:600}
-  .job .org{font-size:15px;color:var(--muted);margin-bottom:10px}
+  .job .when{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);padding-top:4px}
+  .job h3{font-size:18px;font-weight:700}
+  .job .org{font-size:14.5px;color:var(--muted);margin-bottom:10px}
   .job ul{list-style:none}
-  .job li{
-    position:relative;padding-left:18px;margin-bottom:8px;
-    font-size:15.5px;color:var(--ink);
-  }
-  .job li::before{
-    content:"";position:absolute;left:0;top:.62em;
-    width:6px;height:6px;border-radius:50%;background:var(--navy);
-  }
-  @media(max-width:620px){.job{grid-template-columns:1fr;gap:6px}.job .when{padding-top:0}}
+  .job li{position:relative;padding-left:18px;margin-bottom:8px;font-size:15px;color:#C7D2DD}
+  .job li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--teal)}
+  @media(max-width:620px){.job{grid-template-columns:1fr;gap:6px}}
 
-  /* ---------- case studies ---------- */
+  /* case studies */
   .case{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:30px 32px;margin-bottom:24px;
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 30px;margin-bottom:20px;
   }
   .case-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;flex-wrap:wrap}
-  .case .tags{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);margin-bottom:6px}
-  .case h3{font-size:21px;font-weight:600;letter-spacing:-0.01em;max-width:470px}
-  .metric{text-align:right;min-width:120px}
-  .metric .v{font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--navy);font-weight:500}
-  .metric .l{font-size:12.5px;color:var(--muted)}
+  .case .tags{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:lowercase}
+  .case h3{font-size:20px;font-weight:700;letter-spacing:-0.01em;max-width:460px}
+  .metric{
+    text-align:center;background:var(--teal-dim);border:1px solid rgba(63,191,168,.3);
+    border-radius:8px;padding:10px 18px;min-width:110px;
+  }
+  .metric .v{font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--teal);font-weight:500}
+  .metric .l{font-size:11.5px;color:var(--muted)}
   .paq{margin-top:20px;display:grid;gap:12px}
-  .paq .row{display:grid;grid-template-columns:104px 1fr;gap:14px}
-  .paq .k{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--navy);
-    padding-top:4px;letter-spacing:.05em;font-weight:500;
-  }
-  .paq .row p{font-size:15.5px}
-  @media(max-width:560px){.paq .row{grid-template-columns:1fr}.paq .k{padding-top:0}}
-  .case-links{margin-top:20px;display:flex;gap:20px;flex-wrap:wrap}
-  .case-links a{font-size:14px;font-weight:500}
+  .paq .row{display:grid;grid-template-columns:100px 1fr;gap:14px}
+  .paq .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--teal);padding-top:4px;letter-spacing:.05em}
+  .paq p{font-size:15px;color:#C7D2DD}
+  @media(max-width:560px){.paq .row{grid-template-columns:1fr}}
+  .case-links{margin-top:18px;display:flex;gap:20px;flex-wrap:wrap}
+  .case-links a{font-family:'JetBrains Mono',monospace;font-size:13px}
 
-  /* ---------- skills ---------- */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .skill-group{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-  .skill-group h4{
-    font-size:12.5px;font-family:'IBM Plex Mono',monospace;color:var(--navy);
-    margin-bottom:8px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
-  }
-  .skill-group p{font-size:15px;color:var(--ink)}
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .skill-group{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .skill-group h4{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:7px;font-weight:500;text-transform:lowercase}
+  .skill-group p{font-size:14.5px;color:#C7D2DD}
 
-  /* ---------- education / certs ---------- */
-  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  /* education */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
   @media(max-width:640px){.edu-grid{grid-template-columns:1fr}}
-  .edu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-  .edu-card h3{font-size:16.5px;font-weight:600}
-  .edu-card .org{color:var(--muted);font-size:14.5px}
-  .edu-card .when{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);margin-top:6px}
-  .cert-list{list-style:none;margin-top:4px}
-  .cert-list li{
-    padding:10px 0;border-bottom:1px solid var(--line);
-    font-size:15px;display:flex;justify-content:space-between;gap:12px;
-  }
+  .edu-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+  .edu-card h3{font-size:16px;font-weight:700}
+  .edu-card .org{color:var(--muted);font-size:14px}
+  .edu-card .when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px}
+  .cert-list{list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:6px 22px}
+  .cert-list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;display:flex;justify-content:space-between;gap:12px;color:#C7D2DD}
   .cert-list li:last-child{border-bottom:none}
-  .cert-list .yr{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);white-space:nowrap}
+  .cert-list .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);white-space:nowrap}
 
-  /* ---------- about / footer ---------- */
-  .about p{max-width:640px;margin-bottom:14px}
+  /* about / footer */
+  .about p{max-width:640px;margin-bottom:14px;color:#C7D2DD}
   .about p:last-child{color:var(--muted)}
-  footer{
-    margin-top:72px;border-top:1px solid var(--line);
-    padding:34px 0 46px;background:var(--card);
-  }
+  footer{margin-top:72px;border-top:1px solid var(--line);padding:32px 0 46px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
-  footer .links a{margin-right:20px;font-size:14.5px;font-weight:500}
-  footer small{font-size:13px;color:var(--muted)}
+  footer .links a{margin-right:20px;font-family:'JetBrains Mono',monospace;font-size:13px}
+  footer small{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
 
 <header>
   <nav class="wrap nav" aria-label="Main">
-    <a class="name" href="#top">Amith T</a>
+    <a class="name" href="#top">amith</a>
     <ul>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#work">Case studies</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="mailto:amith.t@email.com">Contact</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#work">work</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="mailto:amith.t@email.com">contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main id="top">
-  <div class="hero-band">
-    <div class="wrap">
-      <div class="hero">
-        <p class="eyebrow">Data Analyst · Chicago, IL</p>
-        <h1>Hi, I'm Amith.</h1>
-        <p class="sub">Data analyst with four years across financial services and retail, working in SQL, Power BI, and Python. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
-        <div class="hero-links">
-          <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
-            Download resume
-          </a>
-          <a class="btn ghost" href="#work">View case studies</a>
-        </div>
+  <div class="wrap">
+
+    <div class="hero">
+      <span class="status">open to data analyst roles · chicago</span>
+      <h1>Hi, I'm Amith<span>.</span></h1>
+      <p class="sub">Data analyst with four years across financial services and retail, working in SQL, Power BI, and Python. MS in Business Analytics from DePaul University.</p>
+      <div class="hero-links">
+        <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+          Download resume
+        </a>
+        <a class="btn ghost" href="#work">View case studies</a>
       </div>
     </div>
-  </div>
-
-  <div class="wrap">
 
     <div class="kpis" role="list" aria-label="Career snapshot">
       <div class="kpi" role="listitem"><div class="v">4+ yrs</div><div class="l">analyst experience</div></div>
@@ -244,7 +194,7 @@
     </div>
 
     <section id="experience">
-      <h2>Experience</h2>
+      <h2>experience</h2>
 
       <div class="job">
         <div class="when">Feb 2025 — Present</div>
@@ -289,12 +239,12 @@
     </section>
 
     <section id="work">
-      <h2>Case studies</h2>
+      <h2>case_studies</h2>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">FINANCIAL SERVICES · PYTHON · SQL · POWER BI</p>
+            <p class="tags">financial services · python · sql · power bi</p>
             <h3>Finding the customers about to leave, before they left</h3>
           </div>
           <div class="metric"><div class="v">+8%</div><div class="l">renewal lift</div></div>
@@ -302,17 +252,15 @@
         <div class="paq">
           <div class="row"><span class="k">PROBLEM</span><p>Renewals were slipping quarter over quarter and nobody could say which customers were at risk until the cancellation came in.</p></div>
           <div class="row"><span class="k">APPROACH</span><p>Built monthly cohorts from servicing data in SQL, then a logistic regression in Python on payment behavior, support contacts, and product mix. Surfaced the three highest-risk segments in a Power BI view the retention team checks weekly.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>The targeted retention campaign run against those segments lifted renewals by 8%. The risk view is now part of the team's standing weekly review. Writeup uses an anonymized, synthetic version of the data.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>The targeted retention campaign run against those segments lifted renewals by 8%. Writeup uses an anonymized, synthetic version of the data.</p></div>
         </div>
-        <div class="case-links">
-          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
-        </div>
+        <div class="case-links"><a href="https://github.com/amith-t">→ code &amp; writeup</a></div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">PERSONAL PROJECT · PYTHON · BIGQUERY · POWER BI</p>
+            <p class="tags">personal project · python · bigquery · power bi</p>
             <h3>E-commerce sales: one pipeline from raw CSVs to a working dashboard</h3>
           </div>
           <div class="metric"><div class="v">500K+</div><div class="l">records modeled</div></div>
@@ -323,55 +271,43 @@
           <div class="row"><span class="k">OUTCOME</span><p>An interactive dashboard that answers the questions a category manager would actually ask: where margin is leaking, which regions over-index in Q4, and which discounts don't pay for themselves.</p></div>
         </div>
         <div class="case-links">
-          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
-          <a href="#">→ Live dashboard</a>
+          <a href="https://github.com/amith-t">→ code &amp; writeup</a>
+          <a href="#">→ live dashboard</a>
         </div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">PERSONAL PROJECT · TIME SERIES · TABLEAU PUBLIC</p>
+            <p class="tags">personal project · time series · tableau public</p>
             <h3>Forecasting Divvy bike demand, station by station</h3>
           </div>
-          <div class="metric"><div class="v">12 mo</div><div class="l">ride history modeled</div></div>
+          <div class="metric"><div class="v">12 mo</div><div class="l">ride history</div></div>
         </div>
         <div class="paq">
           <div class="row"><span class="k">PROBLEM</span><p>Chicago's bike-share stations regularly run empty or full at the wrong times. When does each station need rebalancing?</p></div>
           <div class="row"><span class="k">APPROACH</span><p>Modeled a year of public Divvy ride data with SARIMA and Prophet to forecast station-level demand by hour and weekday, accounting for seasonality and weather patterns.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>A Tableau Public story showing which stations need morning vs. evening rebalancing, with the forecast accuracy honestly reported, including where the models fall apart.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>A Tableau Public story showing which stations need morning vs. evening rebalancing, with forecast accuracy honestly reported, including where the models fall apart.</p></div>
         </div>
         <div class="case-links">
-          <a href="#">→ Tableau Public story</a>
-          <a href="https://github.com/amith-t">→ Notebooks</a>
+          <a href="#">→ tableau public story</a>
+          <a href="https://github.com/amith-t">→ notebooks</a>
         </div>
       </article>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
+      <h2>skills</h2>
       <div class="skills">
-        <div class="skill-group">
-          <h4>Querying &amp; Languages</h4>
-          <p>SQL (T-SQL, PostgreSQL, MySQL), Python (pandas, NumPy, scikit-learn), DAX</p>
-        </div>
-        <div class="skill-group">
-          <h4>BI &amp; Visualization</h4>
-          <p>Power BI, Tableau, Excel (Power Query, VBA), Looker Studio</p>
-        </div>
-        <div class="skill-group">
-          <h4>Data &amp; Warehousing</h4>
-          <p>Snowflake, BigQuery, SSIS, ETL/ELT pipelines, star schema modeling</p>
-        </div>
-        <div class="skill-group">
-          <h4>Analytics</h4>
-          <p>A/B testing, regression, cohort &amp; funnel analysis, time-series forecasting</p>
-        </div>
+        <div class="skill-group"><h4>querying &amp; languages</h4><p>SQL (T-SQL, PostgreSQL, MySQL), Python (pandas, NumPy, scikit-learn), DAX</p></div>
+        <div class="skill-group"><h4>bi &amp; visualization</h4><p>Power BI, Tableau, Excel (Power Query, VBA), Looker Studio</p></div>
+        <div class="skill-group"><h4>data &amp; warehousing</h4><p>Snowflake, BigQuery, SSIS, ETL/ELT pipelines, star schema modeling</p></div>
+        <div class="skill-group"><h4>analytics</h4><p>A/B testing, regression, cohort &amp; funnel analysis, time-series forecasting</p></div>
       </div>
     </section>
 
     <section id="education">
-      <h2>Education &amp; Certifications</h2>
+      <h2>education_and_certs</h2>
       <div class="edu-grid">
         <div class="edu-card">
           <h3>MS, Business Analytics</h3>
@@ -393,7 +329,7 @@
     </section>
 
     <section id="about" class="about">
-      <h2>About</h2>
+      <h2>about</h2>
       <p>I started as a junior analyst in Bengaluru cleaning CRM data nobody else wanted to touch, and learned early that most of the job is asking the right question before opening a notebook. Two analyst roles in India later, I moved to Chicago for an MS in Business Analytics at DePaul, and I'm now working in financial services on reporting, churn, and KPI standardization.</p>
       <p>Outside work: exploring Chicago by Divvy bike, which is how the forecasting project happened.</p>
     </section>
@@ -404,12 +340,12 @@
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="mailto:amith.t@email.com">Email</a>
-      <a href="https://linkedin.com/in/amith-t">LinkedIn</a>
-      <a href="https://github.com/amith-t">GitHub</a>
-      <a href="Amith_T_Data_Analyst_Resume.pdf" download>Resume (PDF)</a>
+      <a href="mailto:amith.t@email.com">email</a>
+      <a href="https://linkedin.com/in/amith-t">linkedin</a>
+      <a href="https://github.com/amith-t">github</a>
+      <a href="Amith_T_Data_Analyst_Resume.pdf" download>resume.pdf</a>
     </div>
-    <small>© 2026 Amith T · Hosted on GitHub Pages</small>
+    <small>© 2026 amith t</small>
   </div>
 </footer>
 
