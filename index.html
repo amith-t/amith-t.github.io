@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amith T — Data Analyst</title>
-<meta name="description" content="Data analyst in Chicago. SQL, Power BI, Python. Case studies in churn, forecasting, and reporting automation.">
+<meta name="description" content="Data analyst in Chicago. SQL, Power BI, Python. Case studies in churn analysis, forecasting, and reporting automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F7F9FB;
+    --paper:#F8F9FA;
     --card:#FFFFFF;
-    --ink:#1C2B3A;
-    --muted:#5B6B7C;
+    --ink:#1C2530;
+    --muted:#5A6675;
     --navy:#1F4E79;
-    --amber:#E8A33D;
-    --line:#DDE5EC;
-    --radius:10px;
+    --navy-dark:#173C5E;
+    --line:#E2E7EC;
+    --line-strong:#C9D2DB;
+    --radius:8px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -29,137 +30,163 @@
     font-family:'IBM Plex Sans',system-ui,sans-serif;
     background:var(--paper);
     color:var(--ink);
-    line-height:1.6;
-    font-size:17px;
+    line-height:1.65;
+    font-size:16.5px;
   }
   .mono{font-family:'IBM Plex Mono',monospace}
   a{color:var(--navy)}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:3px}
-  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
 
   /* ---------- header ---------- */
   header{
     border-bottom:1px solid var(--line);
-    background:var(--card);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(6px);
     position:sticky;top:0;z-index:10;
   }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 0;
-  }
-  .nav .name{font-weight:700;font-size:16px;letter-spacing:.01em;text-decoration:none;color:var(--ink)}
-  .nav .name span{color:var(--amber)}
-  .nav ul{display:flex;gap:22px;list-style:none}
-  .nav ul a{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;
-    text-decoration:none;color:var(--muted);
-  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .nav .name{font-weight:700;font-size:16px;text-decoration:none;color:var(--ink);letter-spacing:.01em}
+  .nav ul{display:flex;gap:24px;list-style:none}
+  .nav ul a{font-size:14px;font-weight:500;text-decoration:none;color:var(--muted)}
   .nav ul a:hover{color:var(--navy)}
+  @media(max-width:560px){.nav ul{gap:14px}.nav ul a{font-size:13px}}
 
   /* ---------- hero ---------- */
-  .hero{padding:72px 0 56px}
+  .hero{padding:76px 0 48px}
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--navy);
-    letter-spacing:.04em;margin-bottom:16px;
+    letter-spacing:.06em;margin-bottom:18px;text-transform:uppercase;
   }
-  .eyebrow::before{content:"-- ";color:var(--amber)}
   h1{
-    font-size:clamp(30px,5vw,44px);
-    font-weight:700;letter-spacing:-0.02em;line-height:1.15;
-    max-width:640px;
+    font-size:clamp(30px,4.6vw,42px);
+    font-weight:700;letter-spacing:-0.02em;line-height:1.18;
+    max-width:680px;
   }
-  h1 em{font-style:normal;border-bottom:4px solid var(--amber)}
-  .hero p{
-    margin-top:20px;max-width:560px;color:var(--muted);font-size:18px;
-  }
-  .hero-links{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero .sub{margin-top:18px;max-width:580px;color:var(--muted);font-size:18px}
+  .hero-links{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
   .btn{
-    font-family:'IBM Plex Mono',monospace;font-size:14px;text-decoration:none;
-    padding:10px 18px;border-radius:6px;border:1px solid var(--navy);
+    font-size:15px;font-weight:600;text-decoration:none;
+    padding:11px 20px;border-radius:6px;border:1px solid var(--navy);
+    display:inline-flex;align-items:center;gap:8px;
   }
   .btn.solid{background:var(--navy);color:#fff}
-  .btn.solid:hover{background:#173d5f}
-  .btn.ghost{color:var(--navy)}
-  .btn.ghost:hover{background:#eef3f8}
+  .btn.solid:hover{background:var(--navy-dark)}
+  .btn.ghost{color:var(--navy);background:transparent}
+  .btn.ghost:hover{background:#EEF3F8}
+  .btn svg{width:15px;height:15px}
 
   /* ---------- kpi strip ---------- */
   .kpis{
     display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
     background:var(--line);border:1px solid var(--line);
     border-radius:var(--radius);overflow:hidden;
-    margin:8px 0 0;
   }
-  .kpi{background:var(--card);padding:18px 16px}
-  .kpi .v{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;color:var(--navy)}
-  .kpi .l{font-size:13px;color:var(--muted);margin-top:2px}
+  .kpi{background:var(--card);padding:18px 18px}
+  .kpi .v{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:500;color:var(--navy)}
+  .kpi .l{font-size:13px;color:var(--muted);margin-top:3px}
   @media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}}
 
   /* ---------- sections ---------- */
-  section{padding:64px 0 8px}
+  section{padding:64px 0 4px}
   h2{
-    font-size:14px;font-family:'IBM Plex Mono',monospace;font-weight:500;
-    color:var(--navy);letter-spacing:.08em;text-transform:uppercase;
-    margin-bottom:28px;
+    font-size:22px;font-weight:700;letter-spacing:-0.01em;
+    padding-bottom:12px;margin-bottom:30px;
+    border-bottom:2px solid var(--ink);
   }
-  h2::before{content:"SELECT ";color:var(--amber);font-weight:400}
 
-  /* ---------- project cards ---------- */
+  /* ---------- experience ---------- */
+  .job{
+    display:grid;grid-template-columns:170px 1fr;gap:28px;
+    padding:26px 0;border-bottom:1px solid var(--line);
+  }
+  .job:last-child{border-bottom:none}
+  .job .when{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);
+    padding-top:4px;
+  }
+  .job h3{font-size:18px;font-weight:600}
+  .job .org{font-size:15px;color:var(--muted);margin-bottom:10px}
+  .job ul{list-style:none}
+  .job li{
+    position:relative;padding-left:18px;margin-bottom:8px;
+    font-size:15.5px;color:var(--ink);
+  }
+  .job li::before{
+    content:"";position:absolute;left:0;top:.62em;
+    width:6px;height:6px;border-radius:50%;background:var(--navy);
+  }
+  @media(max-width:620px){.job{grid-template-columns:1fr;gap:6px}.job .when{padding-top:0}}
+
+  /* ---------- case studies ---------- */
   .case{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:32px;margin-bottom:28px;
+    padding:30px 32px;margin-bottom:24px;
   }
   .case-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;flex-wrap:wrap}
-  .case .tags{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);margin-bottom:8px}
-  .case h3{font-size:23px;font-weight:600;letter-spacing:-0.01em;max-width:460px}
-  .metric{
-    text-align:right;min-width:130px;
-  }
-  .metric .v{font-family:'IBM Plex Mono',monospace;font-size:26px;color:var(--navy);font-weight:500}
+  .case .tags{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .case h3{font-size:21px;font-weight:600;letter-spacing:-0.01em;max-width:470px}
+  .metric{text-align:right;min-width:120px}
+  .metric .v{font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--navy);font-weight:500}
   .metric .l{font-size:12.5px;color:var(--muted)}
-  .spark{display:block;margin-top:6px;margin-left:auto}
-  .spark polyline{fill:none;stroke:var(--amber);stroke-width:2}
-  .spark circle{fill:var(--navy)}
-
-  .paq{margin-top:22px;display:grid;gap:14px}
-  .paq .row{display:grid;grid-template-columns:110px 1fr;gap:14px}
+  .paq{margin-top:20px;display:grid;gap:12px}
+  .paq .row{display:grid;grid-template-columns:104px 1fr;gap:14px}
   .paq .k{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--amber);
-    padding-top:3px;letter-spacing:.04em;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--navy);
+    padding-top:4px;letter-spacing:.05em;font-weight:500;
   }
-  .paq .row p{color:var(--ink);font-size:16px}
+  .paq .row p{font-size:15.5px}
   @media(max-width:560px){.paq .row{grid-template-columns:1fr}.paq .k{padding-top:0}}
-
-  .case-links{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap}
-  .case-links a{font-family:'IBM Plex Mono',monospace;font-size:13.5px}
+  .case-links{margin-top:20px;display:flex;gap:20px;flex-wrap:wrap}
+  .case-links a{font-size:14px;font-weight:500}
 
   /* ---------- skills ---------- */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
   .skill-group{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-  .skill-group h4{font-size:13px;font-family:'IBM Plex Mono',monospace;color:var(--navy);margin-bottom:10px;font-weight:500}
-  .skill-group p{font-size:15px;color:var(--muted)}
+  .skill-group h4{
+    font-size:12.5px;font-family:'IBM Plex Mono',monospace;color:var(--navy);
+    margin-bottom:8px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  }
+  .skill-group p{font-size:15px;color:var(--ink)}
+
+  /* ---------- education / certs ---------- */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:640px){.edu-grid{grid-template-columns:1fr}}
+  .edu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .edu-card h3{font-size:16.5px;font-weight:600}
+  .edu-card .org{color:var(--muted);font-size:14.5px}
+  .edu-card .when{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);margin-top:6px}
+  .cert-list{list-style:none;margin-top:4px}
+  .cert-list li{
+    padding:10px 0;border-bottom:1px solid var(--line);
+    font-size:15px;display:flex;justify-content:space-between;gap:12px;
+  }
+  .cert-list li:last-child{border-bottom:none}
+  .cert-list .yr{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);white-space:nowrap}
 
   /* ---------- about / footer ---------- */
-  .about p{max-width:640px;color:var(--ink);margin-bottom:14px}
+  .about p{max-width:640px;margin-bottom:14px}
   .about p:last-child{color:var(--muted)}
   footer{
     margin-top:72px;border-top:1px solid var(--line);
-    padding:36px 0 48px;background:var(--card);
+    padding:34px 0 46px;background:var(--card);
   }
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
-  footer .mono{font-size:13px;color:var(--muted)}
-  footer a{margin-right:18px;font-size:14px}
+  footer .links a{margin-right:20px;font-size:14.5px;font-weight:500}
+  footer small{font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
 
 <header>
   <nav class="wrap nav" aria-label="Main">
-    <a class="name" href="#top">amith_t<span>.</span></a>
+    <a class="name" href="#top">Amith T</a>
     <ul>
-      <li><a href="#work">work</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#about">about</a></li>
-      <li><a href="mailto:amith.t@email.com">contact</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Case studies</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="mailto:amith.t@email.com">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -168,12 +195,15 @@
   <div class="wrap">
 
     <div class="hero">
-      <p class="eyebrow">data analyst · chicago, il</p>
-      <h1>I turn messy operational data into <em>decisions people act on</em>.</h1>
-      <p>Four years across financial services and retail. SQL, Power BI, and Python, with an MS in Business Analytics from DePaul. Below: real problems, how I approached them, and what changed.</p>
+      <p class="eyebrow">Data Analyst · Chicago, IL</p>
+      <h1>I turn messy operational data into decisions people act on.</h1>
+      <p class="sub">Four years across financial services and retail, working in SQL, Power BI, and Python. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
       <div class="hero-links">
-        <a class="btn solid" href="#work">View case studies</a>
-        <a class="btn ghost" href="Amith_T_Data_Analyst_Resume.pdf">Resume (PDF)</a>
+        <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+          Download resume
+        </a>
+        <a class="btn ghost" href="#work">View case studies</a>
       </div>
     </div>
 
@@ -184,49 +214,79 @@
       <div class="kpi" role="listitem"><div class="v">PL-300</div><div class="l">Power BI certified</div></div>
     </div>
 
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="when">Feb 2025 — Present</div>
+        <div>
+          <h3>Data Analyst</h3>
+          <p class="org">BrightPath Financial Services · Chicago, IL</p>
+          <ul>
+            <li>Built 12 Power BI dashboards covering the loan-servicing portfolio; the operations dashboard is now the default view in the team's weekly review, replacing three separate Excel reports.</li>
+            <li>Automated the weekly operations report with Python and SQL stored procedures, cutting prep time from about 10 hours a week to under 1.</li>
+            <li>Ran a churn analysis using cohort segmentation and logistic regression; the at-risk segments fed a retention campaign that lifted renewals by 8%.</li>
+            <li>Work with finance and operations leads to pin down KPI definitions and maintain the data dictionary.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Sep 2021 — Mar 2023</div>
+        <div>
+          <h3>Data Analyst</h3>
+          <p class="org">Zentrix Technologies Pvt. Ltd. · Hyderabad, India</p>
+          <ul>
+            <li>Built SQL ETL workflows pulling sales data from five source systems into Snowflake during the client's warehouse migration; report refresh went from overnight batch to under an hour.</li>
+            <li>Created Tableau dashboards for a retail client tracking inventory turnover across 200+ stores, helping buyers spot overstock earlier in the season.</li>
+            <li>Analyzed A/B tests on the client's e-commerce checkout flow and recommended the winning variant, a 6% lift in completed checkouts.</li>
+            <li>Mentored two junior analysts on SQL query tuning and dashboard layout.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Jan 2020 — Aug 2021</div>
+        <div>
+          <h3>Junior Data Analyst</h3>
+          <p class="org">NovaSoft Solutions · Bengaluru, India</p>
+          <ul>
+            <li>Cleaned and validated customer datasets (1M+ records) in SQL and Power Query ahead of a CRM migration, including deduplication and fixing inconsistent address formats.</li>
+            <li>Automated the monthly business review pack in Excel/VBA, cutting turnaround from 3 days to a few hours.</li>
+            <li>Supported senior analysts on KPI scorecards and root-cause analysis when revenue numbers didn't match between systems.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="work">
-      <h2>case_studies</h2>
+      <h2>Case studies</h2>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">financial services · python · sql · power bi</p>
+            <p class="tags">FINANCIAL SERVICES · PYTHON · SQL · POWER BI</p>
             <h3>Finding the customers about to leave, before they left</h3>
           </div>
-          <div class="metric">
-            <div class="v">+8%</div>
-            <div class="l">renewal lift</div>
-            <svg class="spark" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
-              <polyline points="0,22 18,20 36,21 54,16 72,17 90,10 108,6"/>
-              <circle cx="108" cy="6" r="3"/>
-            </svg>
-          </div>
+          <div class="metric"><div class="v">+8%</div><div class="l">renewal lift</div></div>
         </div>
         <div class="paq">
           <div class="row"><span class="k">PROBLEM</span><p>Renewals were slipping quarter over quarter and nobody could say which customers were at risk until the cancellation came in.</p></div>
           <div class="row"><span class="k">APPROACH</span><p>Built monthly cohorts from servicing data in SQL, then a logistic regression in Python on payment behavior, support contacts, and product mix. Surfaced the three highest-risk segments in a Power BI view the retention team checks weekly.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>The targeted retention campaign run against those segments lifted renewals by 8%. The risk view is now part of the team's standing weekly review.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>The targeted retention campaign run against those segments lifted renewals by 8%. The risk view is now part of the team's standing weekly review. Writeup uses an anonymized, synthetic version of the data.</p></div>
         </div>
         <div class="case-links">
-          <a href="https://github.com/amith-t">→ code &amp; writeup</a>
-          <a href="#">→ dashboard walkthrough</a>
+          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
         </div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">personal project · python · bigquery · power bi</p>
+            <p class="tags">PERSONAL PROJECT · PYTHON · BIGQUERY · POWER BI</p>
             <h3>E-commerce sales: one pipeline from raw CSVs to a working dashboard</h3>
           </div>
-          <div class="metric">
-            <div class="v">500K+</div>
-            <div class="l">records modeled</div>
-            <svg class="spark" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
-              <polyline points="0,18 18,14 36,19 54,12 72,15 90,8 108,11"/>
-              <circle cx="108" cy="11" r="3"/>
-            </svg>
-          </div>
+          <div class="metric"><div class="v">500K+</div><div class="l">records modeled</div></div>
         </div>
         <div class="paq">
           <div class="row"><span class="k">PROBLEM</span><p>A public retail dataset with the usual mess: duplicate orders, mixed currencies, inconsistent product categories, and no usable schema.</p></div>
@@ -234,25 +294,18 @@
           <div class="row"><span class="k">OUTCOME</span><p>An interactive dashboard that answers the questions a category manager would actually ask: where margin is leaking, which regions over-index in Q4, and which discounts don't pay for themselves.</p></div>
         </div>
         <div class="case-links">
-          <a href="https://github.com/amith-t">→ code &amp; writeup</a>
-          <a href="#">→ live dashboard</a>
+          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
+          <a href="#">→ Live dashboard</a>
         </div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">personal project · time series · tableau public</p>
+            <p class="tags">PERSONAL PROJECT · TIME SERIES · TABLEAU PUBLIC</p>
             <h3>Forecasting Divvy bike demand, station by station</h3>
           </div>
-          <div class="metric">
-            <div class="v">12 mo</div>
-            <div class="l">ride history modeled</div>
-            <svg class="spark" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
-              <polyline points="0,20 18,8 36,16 54,5 72,14 90,7 108,12"/>
-              <circle cx="108" cy="12" r="3"/>
-            </svg>
-          </div>
+          <div class="metric"><div class="v">12 mo</div><div class="l">ride history modeled</div></div>
         </div>
         <div class="paq">
           <div class="row"><span class="k">PROBLEM</span><p>Chicago's bike-share stations regularly run empty or full at the wrong times. When does each station need rebalancing?</p></div>
@@ -260,36 +313,58 @@
           <div class="row"><span class="k">OUTCOME</span><p>A Tableau Public story showing which stations need morning vs. evening rebalancing, with the forecast accuracy honestly reported, including where the models fall apart.</p></div>
         </div>
         <div class="case-links">
-          <a href="#">→ tableau public story</a>
-          <a href="https://github.com/amith-t">→ notebooks</a>
+          <a href="#">→ Tableau Public story</a>
+          <a href="https://github.com/amith-t">→ Notebooks</a>
         </div>
       </article>
     </section>
 
     <section id="skills">
-      <h2>skills</h2>
+      <h2>Skills</h2>
       <div class="skills">
         <div class="skill-group">
-          <h4>querying &amp; languages</h4>
+          <h4>Querying &amp; Languages</h4>
           <p>SQL (T-SQL, PostgreSQL, MySQL), Python (pandas, NumPy, scikit-learn), DAX</p>
         </div>
         <div class="skill-group">
-          <h4>bi &amp; visualization</h4>
+          <h4>BI &amp; Visualization</h4>
           <p>Power BI, Tableau, Excel (Power Query, VBA), Looker Studio</p>
         </div>
         <div class="skill-group">
-          <h4>data &amp; warehousing</h4>
+          <h4>Data &amp; Warehousing</h4>
           <p>Snowflake, BigQuery, SSIS, ETL/ELT pipelines, star schema modeling</p>
         </div>
         <div class="skill-group">
-          <h4>analytics</h4>
+          <h4>Analytics</h4>
           <p>A/B testing, regression, cohort &amp; funnel analysis, time-series forecasting</p>
         </div>
       </div>
     </section>
 
+    <section id="education">
+      <h2>Education &amp; Certifications</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>MS, Business Analytics</h3>
+          <p class="org">DePaul University · Chicago, IL</p>
+          <p class="when">Sep 2023 — Jun 2025</p>
+        </div>
+        <div class="edu-card">
+          <h3>B.Tech, Computer Science</h3>
+          <p class="org">JNTU Hyderabad · Hyderabad, India</p>
+          <p class="when">Jun 2015 — May 2019</p>
+        </div>
+      </div>
+      <ul class="cert-list">
+        <li><span>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</span><span class="yr">2024</span></li>
+        <li><span>Tableau Desktop Specialist</span><span class="yr">2024</span></li>
+        <li><span>Google Advanced Data Analytics Professional Certificate</span><span class="yr">2023</span></li>
+        <li><span>SnowPro Core Certification (Snowflake)</span><span class="yr">in progress</span></li>
+      </ul>
+    </section>
+
     <section id="about" class="about">
-      <h2>about</h2>
+      <h2>About</h2>
       <p>I started as a junior analyst in Bengaluru cleaning CRM data nobody else wanted to touch, and learned early that most of the job is asking the right question before opening a notebook. Two analyst roles in India later, I moved to Chicago for an MS in Business Analytics at DePaul, and I'm now working in financial services on reporting, churn, and KPI standardization.</p>
       <p>Outside work: exploring Chicago by Divvy bike, which is how the forecasting project happened.</p>
     </section>
@@ -299,12 +374,13 @@
 
 <footer>
   <div class="wrap">
-    <div>
-      <a href="mailto:amith.t@email.com">email</a>
-      <a href="https://linkedin.com/in/amith-t">linkedin</a>
-      <a href="https://github.com/amith-t">github</a>
+    <div class="links">
+      <a href="mailto:amith.t@email.com">Email</a>
+      <a href="https://linkedin.com/in/amith-t">LinkedIn</a>
+      <a href="https://github.com/amith-t">GitHub</a>
+      <a href="Amith_T_Data_Analyst_Resume.pdf" download>Resume (PDF)</a>
     </div>
-    <p class="mono">© 2026 amith t · built by hand, hosted on github pages</p>
+    <small>© 2026 Amith T · Hosted on GitHub Pages</small>
   </div>
 </footer>
 
