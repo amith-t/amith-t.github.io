@@ -53,34 +53,59 @@
   @media(max-width:560px){.nav ul{gap:14px}.nav ul a{font-size:13px}}
 
   /* ---------- hero ---------- */
-  .hero{padding:76px 0 48px}
+  .hero-band{
+    background:
+      linear-gradient(rgba(18,42,68,0) 0%, rgba(18,42,68,.45) 100%),
+      radial-gradient(1100px 480px at 78% -10%, #2E6DA4 0%, rgba(46,109,164,0) 60%),
+      linear-gradient(135deg, #15324F 0%, #1F4E79 58%, #173C5E 100%);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-band::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.25));
+  }
+  .hero-band::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+    pointer-events:none;
+    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><polyline points="0,95 120,80 240,88 360,62 480,70 600,46 720,58 840,34 960,44 1080,22 1200,30" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2.5"/><polyline points="0,108 150,100 300,104 450,88 600,94 750,76 900,84 1050,64 1200,70" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>') bottom/100% 100% no-repeat;
+  }
+  .hero{padding:84px 0 110px;position:relative;z-index:1}
   .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--navy);
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9FC3E4;
     letter-spacing:.06em;margin-bottom:18px;text-transform:uppercase;
   }
   h1{
     font-size:clamp(30px,4.6vw,42px);
     font-weight:700;letter-spacing:-0.02em;line-height:1.18;
-    max-width:680px;
+    max-width:680px;color:#fff;
   }
-  .hero .sub{margin-top:18px;max-width:580px;color:var(--muted);font-size:18px}
+  .hero .sub{margin-top:18px;max-width:580px;color:#C9D9E8;font-size:18px}
   .hero-links{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
   .btn{
     font-size:15px;font-weight:600;text-decoration:none;
-    padding:11px 20px;border-radius:6px;border:1px solid var(--navy);
+    padding:11px 20px;border-radius:6px;border:1px solid #fff;
     display:inline-flex;align-items:center;gap:8px;
   }
-  .btn.solid{background:var(--navy);color:#fff}
-  .btn.solid:hover{background:var(--navy-dark)}
-  .btn.ghost{color:var(--navy);background:transparent}
-  .btn.ghost:hover{background:#EEF3F8}
+  .btn.solid{background:#fff;color:var(--navy);border-color:#fff}
+  .btn.solid:hover{background:#E8EFF6}
+  .btn.ghost{color:#fff;background:transparent;border-color:rgba(255,255,255,.55)}
+  .btn.ghost:hover{background:rgba(255,255,255,.12)}
   .btn svg{width:15px;height:15px}
+  .hero a:focus-visible{outline-color:#fff}
 
   /* ---------- kpi strip ---------- */
   .kpis{
     display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
     background:var(--line);border:1px solid var(--line);
     border-radius:var(--radius);overflow:hidden;
+    margin-top:-58px;position:relative;z-index:2;
+    box-shadow:0 10px 30px rgba(21,50,79,.14);
   }
   .kpi{background:var(--card);padding:18px 18px}
   .kpi .v{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:500;color:var(--navy)}
@@ -192,20 +217,24 @@
 </header>
 
 <main id="top">
-  <div class="wrap">
-
-    <div class="hero">
-      <p class="eyebrow">Data Analyst · Chicago, IL</p>
-      <h1>I turn messy operational data into decisions people act on.</h1>
-      <p class="sub">Four years across financial services and retail, working in SQL, Power BI, and Python. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
-      <div class="hero-links">
-        <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
-          Download resume
-        </a>
-        <a class="btn ghost" href="#work">View case studies</a>
+  <div class="hero-band">
+    <div class="wrap">
+      <div class="hero">
+        <p class="eyebrow">Data Analyst · Chicago, IL</p>
+        <h1>I turn messy operational data into decisions people act on.</h1>
+        <p class="sub">Four years across financial services and retail, working in SQL, Power BI, and Python. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
+        <div class="hero-links">
+          <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+            Download resume
+          </a>
+          <a class="btn ghost" href="#work">View case studies</a>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="wrap">
 
     <div class="kpis" role="list" aria-label="Career snapshot">
       <div class="kpi" role="listitem"><div class="v">4+ yrs</div><div class="l">analyst experience</div></div>
