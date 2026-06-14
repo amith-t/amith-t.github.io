@@ -75,7 +75,7 @@
     pointer-events:none;
     background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><polyline points="0,95 120,80 240,88 360,62 480,70 600,46 720,58 840,34 960,44 1080,22 1200,30" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2.5"/><polyline points="0,108 150,100 300,104 450,88 600,94 750,76 900,84 1050,64 1200,70" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>') bottom/100% 100% no-repeat;
   }
-  .hero{padding:84px 0 110px;position:relative;z-index:1}
+  .hero{padding:84px 0 64px;position:relative;z-index:1}
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9FC3E4;
     letter-spacing:.06em;margin-bottom:18px;text-transform:uppercase;
@@ -113,6 +113,7 @@
   @media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}}
 
   /* ---------- sections ---------- */
+  .wrap > section:first-of-type{padding-top:56px}
   section{padding:64px 0 4px}
   h2{
     font-size:22px;font-weight:700;letter-spacing:-0.01em;
@@ -235,13 +236,6 @@
   </div>
 
   <div class="wrap">
-
-    <div class="kpis" role="list" aria-label="Career snapshot">
-      <div class="kpi" role="listitem"><div class="v">4.5 yrs</div><div class="l">analyst experience</div></div>
-      <div class="kpi" role="listitem"><div class="v">250+</div><div class="l">legacy jobs decommissioned</div></div>
-      <div class="kpi" role="listitem"><div class="v">PHI/PII</div><div class="l">compliance &amp; governance</div></div>
-      <div class="kpi" role="listitem"><div class="v">PL-300</div><div class="l">Power BI certified</div></div>
-    </div>
 
     <section id="experience">
       <h2>Experience</h2>
