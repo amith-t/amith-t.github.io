@@ -223,7 +223,7 @@
       <div class="hero">
         <p class="eyebrow">Data Analyst · Chicago, IL</p>
         <h1>Hi, I'm Amith.</h1>
-        <p class="sub">Data analyst with 4.5 years of experience, currently supporting financial operations and national accounts at Optum. Strong in SQL, Power BI, Tableau, and SSRS. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
+        <p class="sub">Data analyst with 4.5 years of experience, currently working with financial and operational data at Optum. Strong in SQL, Power BI, Tableau, and SSRS. MS in Business Analytics from DePaul University. Below: real problems, how I approached them, and what changed.</p>
         <div class="hero-links">
           <a class="btn solid" href="Amith_T_Data_Analyst_Resume.pdf" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
@@ -246,7 +246,7 @@
           <h3>Data Analyst</h3>
           <p class="org">Optum · Chicago, IL</p>
           <ul>
-            <li>Manage and analyze data for financial operations and key/national accounts, partnering with Medicare &amp; Retirement (M&amp;R) and Community &amp; State (C&amp;S) teams.</li>
+            <li>Manage and analyze financial and operational data, partnering with Medicare &amp; Retirement (M&amp;R) and Community &amp; State (C&amp;S) teams.</li>
             <li>Lead data migration and report consolidation across Power BI, Tableau, and SSRS, and troubleshoot SSIS packages to keep operational data flowing reliably.</li>
             <li>Decommissioned 250+ outdated jobs, cutting technical debt and simplifying the data architecture for better system performance.</li>
             <li>Managed sensitive PHI/PII data by configuring security roles across reporting platforms, ensuring compliance with data governance standards.</li>
@@ -261,10 +261,10 @@
           <h3>Data Analyst</h3>
           <p class="org">DigiTele Networks · India</p>
           <ul>
-            <li>Delivered data analysis for clients across business, aviation, charity, and health sectors, translating requirements into technical specs.</li>
-            <li>Built databases and complex SQL queries to generate reports for all levels of management.</li>
-            <li>Developed Power BI and Tableau dashboards for stakeholders; cut data processing time 30% with advanced Excel.</li>
-            <li>Partnered with cross-functional teams to solve complex problems, improving departmental efficiency 25%.</li>
+            <li>Partnered with HR and leadership to define workforce KPIs (attrition rate, hiring trends, overtime impact, department performance), translating questions into specs and sourcing data from HRMS and payroll systems.</li>
+            <li>Extracted and validated employee data in SQL (joins, aggregations, CASE logic), then cleaned and modeled it in Power Query and a star schema for performance.</li>
+            <li>Built Power BI dashboards with advanced DAX measures, drill-through, scheduled refresh, and row-level security, giving leadership real-time workforce visibility.</li>
+            <li>Ran UAT with HR stakeholders to refine business logic, and cut manual Excel reporting 40% to support data-driven retention and hiring decisions.</li>
           </ul>
         </div>
       </div>
@@ -275,9 +275,9 @@
           <h3>Junior Data Analyst</h3>
           <p class="org">Amnet Digital · India</p>
           <ul>
-            <li>Gathered and documented business requirements in healthcare retail, mapping process designs to technical specs.</li>
-            <li>Ran data extraction, validation, and reporting across Snowflake, MSSQL Server, and MySQL.</li>
-            <li>Used Python (Pandas, Matplotlib) and BI tools (Looker, Tableau, Power BI) to surface trends for stakeholders.</li>
+            <li>Engineered data profiling pipelines and cleaning strategies in Python and SQL, improving overall data quality by 40%.</li>
+            <li>Documented data transformation mappings and built Tableau dashboards to track quality metrics and support issue remediation across cross-functional systems.</li>
+            <li>Prepared monthly performance and risk reports for executive stakeholders aligned with audit controls, and ran peer QA reviews and root-cause analysis to enforce data governance policies.</li>
           </ul>
         </div>
       </div>
@@ -289,56 +289,45 @@
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">FINANCIAL SERVICES · PYTHON · SQL · POWER BI</p>
-            <h3>Finding the customers about to leave, before they left</h3>
+            <p class="tags">WORKFORCE ANALYTICS · SQL · POWER BI · DAX</p>
+            <h3>Giving HR leadership a live view of attrition and hiring</h3>
           </div>
-          <div class="metric"><div class="v">+8%</div><div class="l">renewal lift</div></div>
+          <div class="metric"><div class="v">−40%</div><div class="l">manual reporting</div></div>
         </div>
         <div class="paq">
-          <div class="row"><span class="k">PROBLEM</span><p>Renewals were slipping quarter over quarter and nobody could say which customers were at risk until the cancellation came in.</p></div>
-          <div class="row"><span class="k">APPROACH</span><p>Built monthly cohorts from servicing data in SQL, then a logistic regression in Python on payment behavior, support contacts, and product mix. Surfaced the three highest-risk segments in a Power BI view the retention team checks weekly.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>The targeted retention campaign run against those segments lifted renewals by 8%. The risk view is now part of the team's standing weekly review. Writeup uses an anonymized, synthetic version of the data.</p></div>
-        </div>
-        <div class="case-links">
-          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
+          <div class="row"><span class="k">PROBLEM</span><p>HR and leadership were tracking attrition, hiring, and overtime across scattered spreadsheets, with no single source of truth and a lot of manual monthly reporting.</p></div>
+          <div class="row"><span class="k">APPROACH</span><p>Partnered with stakeholders to define the KPIs that mattered (attrition rate, hiring trends, overtime impact, department performance), sourced data from HRMS and payroll, then built the pipeline end to end: SQL extraction and validation, cleaning in Power Query, a star-schema model, and advanced DAX measures.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>Delivered interactive Power BI dashboards with drill-through, scheduled refresh, and row-level security, refined through UAT with HR. Cut manual Excel reporting by 40% and gave leadership real-time visibility for retention and hiring decisions.</p></div>
         </div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">PERSONAL PROJECT · PYTHON · BIGQUERY · POWER BI</p>
-            <h3>E-commerce sales: one pipeline from raw CSVs to a working dashboard</h3>
+            <p class="tags">DATA QUALITY &amp; GOVERNANCE · PYTHON · SQL · TABLEAU</p>
+            <h3>Cleaning up data quality across cross-functional systems</h3>
           </div>
-          <div class="metric"><div class="v">500K+</div><div class="l">records modeled</div></div>
+          <div class="metric"><div class="v">+40%</div><div class="l">data quality</div></div>
         </div>
         <div class="paq">
-          <div class="row"><span class="k">PROBLEM</span><p>A public retail dataset with the usual mess: duplicate orders, mixed currencies, inconsistent product categories, and no usable schema.</p></div>
-          <div class="row"><span class="k">APPROACH</span><p>Cleaned and validated the data in Python (pandas), designed a star schema in BigQuery, and built a Power BI model on top covering pricing, seasonality, and regional performance.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>An interactive dashboard that answers the questions a category manager would actually ask: where margin is leaking, which regions over-index in Q4, and which discounts don't pay for themselves.</p></div>
-        </div>
-        <div class="case-links">
-          <a href="https://github.com/amith-t">→ Code &amp; writeup</a>
-          <a href="#">→ Live dashboard</a>
+          <div class="row"><span class="k">PROBLEM</span><p>Data flowing across multiple systems was inconsistent and unreliable, undermining reporting accuracy and creating governance and audit risk.</p></div>
+          <div class="row"><span class="k">APPROACH</span><p>Engineered data profiling pipelines and cleaning strategies in Python and SQL, documented transformation mappings, and built governance-focused Tableau dashboards to track quality metrics. Ran peer QA reviews and root-cause analysis on flagged issues.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>Improved overall data quality by 40% and enhanced reporting accuracy across systems. Prepared monthly performance and risk reports for executives aligned with audit controls, supporting remediation and enforcing governance policies.</p></div>
         </div>
       </article>
 
       <article class="case">
         <div class="case-top">
           <div>
-            <p class="tags">PERSONAL PROJECT · TIME SERIES · TABLEAU PUBLIC</p>
-            <h3>Forecasting Divvy bike demand, station by station</h3>
+            <p class="tags">HEALTHCARE · DATA MIGRATION · POWER BI · SSRS · SSIS</p>
+            <h3>Simplifying a tangled reporting architecture at Optum</h3>
           </div>
-          <div class="metric"><div class="v">12 mo</div><div class="l">ride history modeled</div></div>
+          <div class="metric"><div class="v">250+</div><div class="l">jobs decommissioned</div></div>
         </div>
         <div class="paq">
-          <div class="row"><span class="k">PROBLEM</span><p>Chicago's bike-share stations regularly run empty or full at the wrong times. When does each station need rebalancing?</p></div>
-          <div class="row"><span class="k">APPROACH</span><p>Modeled a year of public Divvy ride data with SARIMA and Prophet to forecast station-level demand by hour and weekday, accounting for seasonality and weather patterns.</p></div>
-          <div class="row"><span class="k">OUTCOME</span><p>A Tableau Public story showing which stations need morning vs. evening rebalancing, with the forecast accuracy honestly reported, including where the models fall apart.</p></div>
-        </div>
-        <div class="case-links">
-          <a href="#">→ Tableau Public story</a>
-          <a href="https://github.com/amith-t">→ Notebooks</a>
+          <div class="row"><span class="k">PROBLEM</span><p>Years of accumulated reporting jobs and overlapping pipelines had left financial and operational reporting slow, hard to maintain, and full of technical debt.</p></div>
+          <div class="row"><span class="k">APPROACH</span><p>Led data migration and report consolidation across Power BI, Tableau, and SSRS, troubleshot SSIS packages, and systematically identified outdated jobs for decommissioning, all while handling sensitive PHI/PII under strict governance.</p></div>
+          <div class="row"><span class="k">OUTCOME</span><p>Decommissioned 250+ outdated jobs, cutting technical debt and improving system performance. Configured row-level security and compliant access so leadership across Medicare &amp; Retirement and Community &amp; State could rely on real-time reporting.</p></div>
         </div>
       </article>
     </section>
